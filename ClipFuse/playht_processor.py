@@ -5,8 +5,8 @@ import time
 from pydub import AudioSegment
 
 
-playht_userid= "TrMcrhz1qYSvLS6o0ef41lCCu7x2"
-playth_authorization="ak-ac83577260944420b1a9e313c11ebdf1" # Secret Key
+# playht_userid= "TrMcrhz1qYSvLS6o0ef41lCCu7x2"
+# playth_authorization="ak-ac83577260944420b1a9e313c11ebdf1" # Secret Key
 # Funtion to create PlayHt custom voice
 def custom_voice_creation (file_path, playth_authorization, playht_userid, voice_name='custom_voice-1'):
     """ Takes custom voice input path and creates a plyht voice instantly. Returns a dictionary of the created voice information."""
@@ -41,7 +41,7 @@ def custom_voice_creation (file_path, playth_authorization, playht_userid, voice
         return None
     
 # Function to convert text to audio
-def text_to_audio (playth_authorization, playht_userid, story_text, voice_id= "s3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json", voiceover_save_path= "../03. Intermediate Outputs//custom_speech_voiceover.mp3"):
+def text_to_audio (playth_authorization, playht_userid, story_text, voice_id= "s3://voice-cloning-zero-shot/3cdb9c6c-547b-4935-9a50-d920a014874c/navya-cloned-01/manifest.json", voiceover_save_path= "../03. Intermediate Outputs//custom_speech_voiceover.mp3"):
     """ Convert text to speech audio using playht requests and saves it. This function text-to-speech playht job ID"""
     # Configure Plyht
     url = "https://api.play.ht/api/v2/tts"
@@ -50,6 +50,7 @@ def text_to_audio (playth_authorization, playht_userid, story_text, voice_id= "s
         "voice": voice_id,
         "output_format": "mp3",
         "voice_engine": "PlayHT2.0",
+        #"voice_engine": "Play3.0-mini",
         #"speed": 0.8,
         #"quality": "medium",
         #"voice_guidance": 6, # Important Metric: Determines how close the generated voice should match the custom voice.
@@ -146,6 +147,7 @@ def transcript_timestamp(job_id, playth_authorization,playht_userid):
     # Wait for the job to complete
     attempt_id= 1
     while(True):
+        if (attempt_id>10): return None
         print(f"    Attempt {attempt_id}")
         response_timestamp = requests.get(url, headers=headers)
         if(response_timestamp.status_code in [200,201]):

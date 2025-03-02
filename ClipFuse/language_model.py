@@ -32,14 +32,16 @@ def story_text_generator (media_information):
     input_prompt= """
     You are a story-creating assistant. Your task is to take a list of image/video descriptions from the user's recent vacation and combine them in the provided order to create a concise narrative. This narrative will be used as a background voiceover for the user's vlog video. Generate the story based on the descriptions below and return STRICTLY A JSON output. For instance, if the list contains three descriptions, return a JSON with 3 story segments with keys as Section_[number]. Make sure to be concise. Additionally, provide a video starter with the key "Starter" with value something like "Welcome to my vlog ____" and provide key "Title" with value of some short text to display in the video's starter.
 
+    ENSURE EVERY SEGMENT's DESCRIPTION IS NOT MORE THAN 7 SECONDS OF LENGTH WHEN SPOKEN. KEEP IT CONCISE.
+
     Here's an example response:
     {
     "Title": "My Journey to the Great Taj Mahal",
     "Starter": "Welcome to my vlog of my unforgettable vacation to the Great Taj Mahal.",
-    "Section_1": "It all began with my fully packed bag ready for the early morning flight to Delhi. The anticipation of the adventure ahead was palpable as I prepared to explore one of the most iconic landmarks in the world.",
-    "Section_2": "After arriving in Agra, I strolled through the bustling shopping streets where vendors offered a variety of goods, from jewelry and toys to leather boots. The vibrant energy of the market added a unique charm to my journey.",
-    "Section_3": "The highlight of my trip was undoubtedly visiting the magnificent Taj Mahal. Here I am, standing in front of this breathtaking monument, truly in awe of its beauty and historical significance. It was a moment that captured the essence of India's rich heritage.",
-    "Section_4": "As the day came to an end, I took a cab, known locally as an Auto Rickshaw, back to my hotel. This authentic experience added a special touch to my trip, concluding a day filled with incredible sights and memories. Thank you for joining me on this amazing journey to the Taj Mahal."
+    "Section_1": "It all began with my fully packed bag ready for the early morning flight to Delhi.",
+    "Section_2": "After arriving in Agra, I strolled through the bustling shopping streets where vendors offered a variety of goods, from jewelry and toys to leather boots.",
+    "Section_3": "The highlight of my trip was undoubtedly visiting the magnificent Taj Mahal. Here I am, standing in front of this breathtaking monument.",
+    "Section_4": "As the day came to an end, I took a cab, known locally as an Auto Rickshaw, back to my hotel."
     }
 
     User:
@@ -104,6 +106,7 @@ def subtitle_matcher (ideal_sub_dict, actual_sub_list):
                     }
     }
 
+    STRICTLY ENSURE THE RESPONSE LENGTH IS EQUAL TO IDEAL SUBTITLE DICTIONARY LENGTH
     USER INPUT:
     """ + f"IDEAL SUBTITLE DICTIONARY:{ideal_sub_dict}" + f"ACTUAL SUBTITLE LIST: {actual_sub_list}"
 
