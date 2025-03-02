@@ -195,6 +195,8 @@ def get_images(query: ImageQuery):
     selected_images = ranked_images[:n_images]
 
     return {
+        "prompt": prompt,
+        "time_limit": time_limit,
         "total_images": len(ranked_images),
         "selected_images": len(selected_images),
         "images": [{"path": img[0], "caption": img[1], "similarity": img[2]} for img in selected_images],
