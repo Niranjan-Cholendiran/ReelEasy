@@ -6,7 +6,7 @@
 
 ## 🚀 Introduction
 
-**ReelEasy** is an AI-powered video generation tool that allows users to create engaging **video clips from prompts** with ease. Using a **FastAPI backend** and a **Gradio-powered frontend**, ClipFuse AI provides a seamless experience for generating short reels.
+**ReelEasy** is an AI-powered video generation tool that allows users to create engaging **video clips from prompts** with ease. Using a **FastAPI backend** and a **Gradio-powered frontend**, ReelEasy provides a seamless experience for generating short reels.
 
 ## ✨ Features
 👉 **AI-Based Video Generation** – Create videos using user prompt and images.  
@@ -17,6 +17,16 @@
 👉 **Publicly Shareable Links** – Deploy via Gradio.  
 
 ---
+
+## ✨ Architecture
+
+![WhatsApp Image 2025-03-02 at 11 28 06](https://github.com/user-attachments/assets/570dfba1-e639-4f45-8005-d51d2b60830b)
+
+
+
+
+---
+
 
 ## 🛠️ Installation
 
@@ -49,7 +59,7 @@ The app will launch at:
 
 ---
 
-## 🎥 How to Use ClipFuse AI
+## 🎥 How to Use ReelEasy AI
 1. **Launch the Gradio app** (`python gradio_app.py`).
 2. **Enter a text prompt** (e.g., "create a short video of todays hackathon").
 3. **Set a time limit** (duration of the video).
