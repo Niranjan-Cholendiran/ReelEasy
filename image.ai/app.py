@@ -22,7 +22,7 @@ BLIP2_API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-ima
 SIMILARITY_API_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
 
 # 🔹 Path to Folder Containing Images
-IMAGE_FOLDER = "/Users/navyaprasad/Documents/HackCU/photoai/photos"
+IMAGE_FOLDER = "/Users/ashwin/Desktop/Projects/ClipFuse/Images"
 
 # Initialize FastAPI
 app = FastAPI(title="Image Captioning & Ranking API")
