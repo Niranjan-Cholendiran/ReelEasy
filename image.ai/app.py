@@ -12,10 +12,9 @@ import json
 from langchain_community.chat_models import ChatOpenAI
 # from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage
-
-# 🔹 Hugging Face API Keys
-BLIP2_API_KEY = "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"  # BLIP-2 Captioning
-SIMILARITY_API_KEY = "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"  # Sentence Similarity
+load_dotenv()
+BLIP2_API_KEY = os.getenv("BLIP2_API_KEY")
+SIMILARITY_API_KEY = os.getenv("SIMILARITY_API_KEY")
 
 # 🔹 API Endpoints
 BLIP2_API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base"
@@ -28,7 +27,6 @@ IMAGE_FOLDER = "/Volumes/Suite/HackCU-11"
 app = FastAPI(title="Image Captioning & Ranking API")
 
 # Load environment variables from .env file
-load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # 🔹 ChatGPT API for Word Association
